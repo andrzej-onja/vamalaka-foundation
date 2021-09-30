@@ -6,8 +6,8 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
-    docker:
-      - image: cimg/base:2021.07
+    machine: true # Use a Linux VM instead of docker environment
+    working_directory: ~/repo # Default working d
     steps:
       - checkout
       # Whatever you want to do
@@ -27,8 +27,6 @@ jobs:
             cd server
             ls -al
             echo '^^^That should be in server^^^'
-            systemctl status docker
-            systemctl start docker
             docker-compose up --build
 
       # - run:
