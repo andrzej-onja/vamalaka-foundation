@@ -11,10 +11,24 @@ jobs:
     steps:
       - checkout
       # Whatever you want to do
-      - run: sudo apt-get update && sudo apt-get install -y cowsay
-      - run: cd server
-      - run: sudo docker-compose up --build
-      - run: cowsay passed the build
+      # - run: sudo apt-get update && sudo apt-get install -y cowsay
+      # - run: cd vamalaka-foundation/
+      # - run: cd server
+      # - run: sudo docker-compose up --build
+      # - run: cowsay passed the build
+      - run:
+          name: Code Has Arrived
+          command: |
+            ls -al
+            echo '^^^That should look familiar^^^'
+      - run:
+          name: move to server dir
+          command: |
+            cd server
+      - run:
+          name: Running compose
+          command: |
+            docker-compose up --build
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -22,5 +36,3 @@ workflows:
   say-hello-workflow:
     jobs:
       - build
-
-
