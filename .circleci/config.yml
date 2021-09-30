@@ -27,6 +27,8 @@ jobs:
             cd server
             ls -al
             echo '^^^That should be in server^^^'
+            systemctl status docker
+            systemctl start docker
             docker-compose up --build
 
       # - run:
