@@ -27,7 +27,7 @@ jobs:
             cd server
             ls -al
             echo '^^^That should be in server^^^'
-            docker-compose up --build
+            docker-compose up --build -d
 
       # - run:
       #     name: Running compose
